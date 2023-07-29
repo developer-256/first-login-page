@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ICT Project</title>
+    <link href="https://fonts.googleapis.com/css2?family=Baloo+Bhai+2:wght@600&display=swap" rel="stylesheet">
+
+
+
+
+    <style>
+        * {
+            /* default page settings */
+            /* box-sizing: border-box; */
+            margin: 0px;
+            padding: 0px;
+        }
+
+        body {
+            /* background-color: gray; */
+            background-image: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.6)), url(wall.jpg);
+            /* If a color is used as a background, it will repeat after every element. This is used to remove this */
+            background-repeat: no-repeat;
+            /* If repeat is no repeat,background will end after element end and we will have a white space. This is to avoid this */
+            background-attachment: fixed;
+            /* Set position to center */
+            background-position: center;
+            /* Background will change dynamically when window size is changed */
+            background-size: cover;
+        }
+
+        .container {
+            height: 25vh;
+            /* border: 2px solid salmon; */
+            display: flex;
+            /* to give equal space between header tags */
+            justify-content: space-between;
+            /* to align vertically center of flex container */
+            align-items: center;
+            /* to make responsive */
+            flex-wrap: wrap;
+        }
+
+        img {
+            width: 130px;
+            margin-left: 80px;
+            cursor: pointer;
+            /* change color of png by using css filter generator */
+            filter: invert(92%) sepia(10%) saturate(760%) hue-rotate(324deg) brightness(105%) contrast(96%);
+        }
+
+        .item {
+            /* sort horzontally */
+            display: flex;
+            /* padding-bottom: 25px; */
+            align-items: center;
+            font-size: 25px;
+            font-family: 'Baloo Bhai 2', cursive;
+            margin-right: 130px;
+            /* remove the points from unordered list */
+            list-style-type: none;
+            /* to make responsive */
+            flex-wrap: wrap;
+        }
+
+
+        a {
+            /* to give space in between list items */
+            margin-right: 45px;
+            color: antiquewhite;
+            /* to remove underline */
+            text-decoration: none;
+            /* allow the positioning of pseudo-elements (like :before) relative to them. */
+            position: relative;
+        }
+
+        a:before {
+            /* Required to create a pseudo-element */
+            content: "";
+            /* positions the pseudo-element relative to the parent link. */
+            position: absolute;
+            /* sets the position of the underline just below the link's content box, so it appears as an underline. */
+            bottom: -2px;
+            /* how thick the underline is */
+            height: 6px;
+            /* intiall width of this line is zero */
+            width: 0;
+            background: #29fd50;
+            /* borders are rounded */
+            border-radius: 50px;
+            /* transition is applied on width so is takes 0.5s with ease function for the smooth transition */
+            transition: width 0.5s ease;
+        }
+
+        /* to color link text when hover */
+        a:hover {
+            color: #29fd50;
+        }
+
+        a:hover::before {
+            width: 100%;
+        }
+
+        .content {
+            /* position absolute to parent */
+            position: absolute;
+            /* text is aligned 50% from top */
+            top: 50%;
+
+            /* width to whole div is 100% of view port */
+            width: 100%;
+            /* text is aligned center of screen and is in center mode*/
+            text-align: center;
+            /* text is moved -35 pixel out of 100 from its origional position on y axis, -35 means upward */
+            transform: translateY(-35%);
+            color: antiquewhite;
+            font-family: 'Baloo Bhai 2', cursive;
+            font-size: 23px;
+            letter-spacing: 1px;
+        }
+
+        .content p {
+            font-family: 'Times New Roman', Times, serif;
+            font-size: 18px;
+            letter-spacing: 2px;
+            line-height: 25px;
+        }
+
+        button {
+            width: 150px;
+            /* font-family: 'Baloo Bhai 2', cursive; */
+            font-size: 17px;
+            padding: 12px;
+            text-align: center;
+            /* 20px top to bottom and 10 px left to right */
+            margin: 20px 10px;
+            border-radius: 30px;
+            font-weight: bold;
+            border: 2px solid #29fd50;
+            background: transparent;
+            color: antiquewhite;
+            cursor: pointer;
+            /* to hide overflow of highlighting from the button boundary */
+            overflow: hidden;
+            position: relative;
+        }
+
+
+
+        span {
+            /* content: ""; is not written because there is context in this button is login and signin*/
+            position: absolute;
+            background-color: #29fd50;
+            border-radius: 30px;
+            /* align left edge of span with the left edge of the button */
+            left: 0;
+            /* align botton edge of span with the botton edge of the button */
+            bottom: 0;
+            /* make the height of span equal to the height of button  */
+            height: 100%;
+            width: 0%;
+            /* start span behind the context of button */
+            z-index: -1;
+            transition: 0.6s;
+        }
+
+        button:hover {
+            border: solid 2px black;
+            color: black;
+        }
+
+        button:hover span {
+            width: 100%;
+        }
+    </style>
+
+
+
+</head>
+
+<body>
+    <div class="container">
+        <img src="/cabin.png" alt="logo">
+        <ul class="item">
+            <li><a href="#">home</a></li>
+            <li><a href="#">about</a></li>
+            <li><a href="#">services</a></li>
+            <li><a href="#">blog</a></li>
+            <li><a href="#">contact</a></li>
+        </ul>
+    </div>
+
+    <div class="content">
+        <h1 style="color: #29fd50;"> ICT Project Webpage </h1>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. <br> At provident veniam quisquam perferendis
+            distinctio delectus doloremque <br> amet magnam porro repellat beatae corrupti sint voluptatum ipsam <br>
+            autem quae tempore, culpa fugiat?</p>
+        <!-- span is empty because it is being utilizzed as a pseudo for applying the hover effect on the button -->
+        <button type="button"><span></span>Login</button>
+        <button type="button"><span></span>Sign in</button>
+
+    </div>
+</body>
+
+</html>
